@@ -9,9 +9,9 @@ Turns a data-rich markdown file into a self-contained HTML deck with embedded EC
 
 ## Origin
 
-Built 2026-04-30 during Tory Burch v6.2 Phase 3.5 (visualizing 5,736-post XHS organic analysis). The pattern proved fast (8 parallel agents, ~10 min wall) and produced a coherent deck that visualizes 6+ data findings in one HTML file. Reusable across any future research deliverable.
+Built during a real consulting engagement visualizing a 5,736-post organic social analysis. The pattern proved fast (8 parallel agents, ~10 min wall) and produced a coherent deck that visualizes 6+ data findings in one HTML file. Reusable across any future research deliverable.
 
-Reference exemplar: `/Users/jenny/WalktheChat Dropbox/Consulting/Tory Burch/Insight/_ai/_method/FINDINGS.html`
+Reference exemplar: a real-world consulting deliverable (a brand resonance study for a US luxury accessories label, internal).
 
 ## When to use
 

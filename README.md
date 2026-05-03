@@ -76,7 +76,7 @@ Each chart is a separate JS file under `charts/`, so re-runs are fast and indivi
 
 ## Origin
 
-Built during a real consulting engagement (a brand resonance study for a US luxury accessories label, internal) where the FINDINGS.md was 18 KB of dense prose and the client needed a deck. Eight parallel agents shipped a 6-chart deck in roughly 10 minutes wall time. The pattern was reusable enough to codify.
+Built during a private consulting engagement where the FINDINGS.md was dense prose and the client needed a deck. The pattern of inductively detecting chart-worthy data, building a small set of ECharts in parallel, and shipping a self-contained HTML file proved reusable enough to codify.
 
 ## License
 

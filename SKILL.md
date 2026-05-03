@@ -9,9 +9,7 @@ Turns a data-rich markdown file into a self-contained HTML deck with embedded EC
 
 ## Origin
 
-Built during a real consulting engagement visualizing a 5,736-post organic social analysis. The pattern proved fast (8 parallel agents, ~10 min wall) and produced a coherent deck that visualizes 6+ data findings in one HTML file. Reusable across any future research deliverable.
-
-Reference exemplar: a real-world consulting deliverable (a brand resonance study for a US luxury accessories label, internal).
+Built during a private consulting engagement where the FINDINGS.md was dense prose and the client needed a deck. The pattern of inductively detecting chart-worthy data, generating a small set of ECharts in parallel, and shipping a self-contained HTML file proved reusable enough to codify across any future research deliverable.
 
 ## When to use
 
@@ -193,4 +191,4 @@ This skill produces a deck, not a strategy. The visual is only as good as the un
 
 ## Version notes
 
-- v1.0 (2026-05-01) — initial skill, extracted from TB v6.2 Phase 3.5 workflow.
+- v1.0 (2026-05-01) — initial skill, extracted from a real consulting deliverable workflow.

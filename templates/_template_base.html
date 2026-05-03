@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>__PROJECT_TITLE__ · Findings</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@6.0.0/dist/echarts.min.js"></script>
+<style>
+  :root {
+    --text:        #1a1a1a;
+    --text-muted:  #5a5a5a;
+    --bg:          #ffffff;
+    --divider:     #e8e8e8;
+    --accent:      #c63d3d;
+    --pale:        #fff8e8;
+    --card-bg:     #fafafa;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 56px 32px 96px; }
+  header { border-bottom: 1px solid var(--divider); padding-bottom: 28px; margin-bottom: 36px; }
+  header .eyebrow { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+  header h1 { font-size: 28px; font-weight: 700; margin: 0 0 8px; line-height: 1.25; }
+  header .meta { font-size: 13px; color: var(--text-muted); }
+
+  .bottom-line {
+    background: var(--card-bg);
+    border-left: 4px solid var(--accent);
+    padding: 20px 24px;
+    margin: 24px 0 36px;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  .bottom-line strong { color: var(--accent); }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(__STATS_COUNT__, 1fr);
+    gap: 12px;
+    margin: 0 0 48px;
+  }
+  .stat {
+    background: var(--card-bg);
+    padding: 18px 16px;
+    border-top: 3px solid var(--accent);
+  }
+  .stat .num { font-size: 24px; font-weight: 700; color: var(--text); display: block; line-height: 1.1; }
+  .stat .label { font-size: 11px; color: var(--text-muted); margin-top: 6px; line-height: 1.35; }
+
+  section { margin: 56px 0; }
+  section h2 { font-size: 20px; font-weight: 600; margin: 0 0 6px; }
+  section .lead { font-size: 14px; color: var(--text-muted); margin: 0 0 20px; max-width: 720px; }
+  section .chart { width: 100%; height: 440px; margin: 16px 0 12px; }
+  section .chart.tall { height: 540px; }
+  section .source { font-size: 11px; color: var(--text-muted); font-style: italic; }
+  section .takeaway {
+    background: var(--card-bg);
+    padding: 14px 18px;
+    margin-top: 16px;
+    font-size: 13.5px;
+    line-height: 1.55;
+    border-left: 3px solid var(--text-muted);
+  }
+  section .takeaway strong { color: var(--accent); }
+
+  .skeptic {
+    background: #fafafa;
+    padding: 20px 24px;
+    border: 1px solid var(--divider);
+    margin-top: 32px;
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+  .skeptic h3 { margin: 0 0 8px; font-size: 14px; font-weight: 600; color: var(--text-muted); letter-spacing: 0.04em; text-transform: uppercase; }
+
+  footer { border-top: 1px solid var(--divider); padding-top: 20px; margin-top: 64px; font-size: 11px; color: var(--text-muted); }
+
+  @media (max-width: 720px) {
+    .wrap { padding: 32px 16px; }
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+    section .chart, section .chart.tall { height: 360px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">__PROJECT_EYEBROW__</div>
+    <h1>__PAGE_TITLE__</h1>
+    <div class="meta">__META_LINE__</div>
+  </header>
+
+  <div class="bottom-line">
+    __BOTTOM_LINE_HTML__
+  </div>
+
+  <div class="stats-row">
+    __STATS_CARDS_HTML__
+  </div>
+
+  __SECTIONS_HTML__
+
+  <div class="skeptic">
+    <h3>Skeptic check</h3>
+    __SKEPTIC_HTML__
+  </div>
+
+  <footer>
+    __FOOTER_HTML__
+  </footer>
+
+</div>
+
+<!-- CHART JS INJECTION POINT -->
+<script>
+__CHART_1_INJECTION__
+__CHART_2_INJECTION__
+__CHART_3_INJECTION__
+__CHART_4_INJECTION__
+__CHART_5_INJECTION__
+__CHART_6_INJECTION__
+__CHART_7_INJECTION__
+
+// Initialize all charts that exist in the DOM
+const candidateCharts = [
+  ['chart1', typeof chart1Option !== 'undefined' ? chart1Option : null],
+  ['chart2', typeof chart2Option !== 'undefined' ? chart2Option : null],
+  ['chart3', typeof chart3Option !== 'undefined' ? chart3Option : null],
+  ['chart4', typeof chart4Option !== 'undefined' ? chart4Option : null],
+  ['chart5', typeof chart5Option !== 'undefined' ? chart5Option : null],
+  ['chart6', typeof chart6Option !== 'undefined' ? chart6Option : null],
+  ['chart7', typeof chart7Option !== 'undefined' ? chart7Option : null],
+];
+const instances = candidateCharts.map(([id, opt]) => {
+  const el = document.getElementById(id);
+  if (!el || !opt) return null;
+  const inst = echarts.init(el, null, {renderer: 'canvas'});
+  inst.setOption(opt);
+  return inst;
+});
+window.addEventListener('resize', () => instances.forEach(i => i && i.resize()));
+</script>
+</body>
+</html>
